@@ -34,7 +34,7 @@ public class Alimento
      */
     public void muestraDatos(){
         System.out.println("Nombre: \t \t \t\t" + nombre 
-                            + "\nProteinsa por cada 100 gramos: \t\t" + proteinas
+                            + "\nProteinas por cada 100 gramos: \t\t" + proteinas
                             + "\nCarbohidratos por cada 100 gramos:\t" + carbohidratos
                             + "\nGrasas por cada 100 gramos:\t\t" + grasas
                             + "\nCalorias:\t\t\t\t" + calorias()
@@ -56,31 +56,33 @@ public class Alimento
      */
     public String componenteMayoritario(){
         String componente = "";
-        if(proteinas >= carbohidratos && carbohidratos >= grasas){
-            componente = "Proteinas";
-            if(proteinas == carbohidratos && proteinas != grasas){
-                componente = componente + " y Carbohidratos";
+        if(proteinas > carbohidratos){
+            if(proteinas > grasas){
+                componente = "Proteinas";
             }
-            if(proteinas == carbohidratos && carbohidratos == grasas){
-                componente = componente + ", Carbohidratos y Grasas";
-            }
-        }
-        if(carbohidratos >= proteinas && proteinas >= grasas){
-             componente = "Carbohidratos";
-            if(carbohidratos == proteinas && carbohidratos != grasas){
-                componente = componente + " y Proteinas";
-            }
-            if(carbohidratos == proteinas && proteinas == grasas){
-                componente = componente + ", Proteinas y Grasas";
+            if(proteinas == grasas){
+                componente = "Proteinas y Grasas";
             }
         }
-        if(grasas >= proteinas && proteinas >= carbohidratos){
-             componente = "Grasas";
-            if(grasas == proteinas && carbohidratos != grasas){
-                componente = componente + " y Proteinas";
+        if(carbohidratos > proteinas){
+            if(carbohidratos > grasas){
+                componente = "Carbohidratos";
             }
-            if(carbohidratos == proteinas && proteinas == grasas){
-                componente = componente + ", Proteinas y Carbohidratos";
+            if(carbohidratos == grasas){
+                componente = "Carbohidratos y Grasas";
+            }
+        }
+        if(grasas > proteinas){
+            if(grasas > carbohidratos){
+                componente = "Grasas";
+            }
+        }
+        if(carbohidratos == proteinas){
+            if(carbohidratos > grasas){
+                componente = "Carbohidratos y Proteinas";
+            }
+            if(carbohidratos == grasas){
+                componente = "Carbohidratos, Grasas y Proteinas";
             }
         }
         return componente;
