@@ -59,6 +59,21 @@ public class Usuario
        
     }
    /**
+    * Método que compara la ingesta de calorías entre dos usuarios
+    */
+   public void compararCalorias(Usuario nombre){
+       if(caloriasTotales > nombre.getCaloriasTotales()){
+           System.out.println(this.nombre + " ha consumido más calorias que " + nombre.getNombre());
+        }
+        else if(caloriasTotales < nombre.getCaloriasTotales()){
+            System.out.println(nombre.getNombre() + " ha consumido más calorias que " + this.nombre);
+        }
+        else{
+            System.out.println("Los dos han consumido la misma cantidad de calorías");
+        }
+    }
+   //Metodos privados para el funcionamiento de la clase
+   /**
     * Creamos un método privado que permite calcular que cantidad de nutriente
     * ha ingerido con determinado alimento
     */
@@ -78,5 +93,13 @@ public class Usuario
            fraseRetorno = " (" + porcentajeAlimento + "%)";
         }
        return fraseRetorno;
+    }
+    
+   //Métodos para que los objetos se comuniquen entre sí 
+   public float getCaloriasTotales(){
+       return caloriasTotales;
+    }
+   public String getNombre(){
+       return nombre;
     }
 }
