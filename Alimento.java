@@ -42,7 +42,7 @@ public class Alimento
     /**
      * Hacemos un método privado que calcula las calorias del alimento
      */
-    private float calorias(){
+    public float calorias(){
         float totalCalorias = (proteinas * incrementoProteinas) 
                               + (carbohidratos * incrementoCarbohidratos)
                               + (grasas * incrementoGrasas);
@@ -83,6 +83,18 @@ public class Alimento
             }
         }
         return componente;
+    }
+    /**
+     * Creamos los metodos que servirán para comunicarse con la clase Usuario
+     */
+    public float getProteinas(){
+        return proteinas;
+    }
+    public float getCarbohidratos(){
+        return carbohidratos;
+    }
+    public float getGrasas(){
+        return grasas;
     }
 
 }
