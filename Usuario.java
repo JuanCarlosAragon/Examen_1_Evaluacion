@@ -18,6 +18,9 @@ public class Usuario
    private float porcentajeCarbohidratos;
    private float porcentajeGrasas;
    
+   private String alimentoMasCalorico;
+   private float mayorIndiceCalorico;
+   
    public Usuario(String nombre){
        this.nombre = nombre;
        
@@ -29,6 +32,8 @@ public class Usuario
        porcentajeProteinas = 0;
        porcentajeCarbohidratos = 0;
        porcentajeGrasas = 0;
+       alimentoMasCalorico = "No ha ingerido alimentos aún";
+       mayorIndiceCalorico = 0;
     }
     /**
      * Creamos un método que permite al usuario comer una cantidad de un alimento.
@@ -45,6 +50,12 @@ public class Usuario
        porcentajeProteinas = (proteinasTotales / macronutrientesTotal) * 100;
        porcentajeCarbohidratos = (carbohidratosTotales / macronutrientesTotal) * 100;
        porcentajeGrasas = (grasasTotales / macronutrientesTotal) * 100;
+       
+       //Actualizamos el alimento mas calórico consumido
+       if(comida.calorias() > mayorIndiceCalorico){
+           mayorIndiceCalorico = comida.calorias();
+           alimentoMasCalorico = comida.getNombre();
+        }
     }
     
    /**
@@ -71,6 +82,9 @@ public class Usuario
         else{
             System.out.println("Los dos han consumido la misma cantidad de calorías");
         }
+    }
+   public void alimentoMasCaloricoIngerido(){
+       System.out.println("Alimento más calórico ingerido por el usuario hasta el momento: " + alimentoMasCalorico);
     }
    //Metodos privados para el funcionamiento de la clase
    /**

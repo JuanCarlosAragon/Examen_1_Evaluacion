@@ -96,5 +96,8 @@ public class Alimento
     public float getGrasas(){
         return grasas;
     }
+    public String getNombre(){
+        return nombre;
+    }
 
 }
