@@ -1,4 +1,4 @@
-
+import java.util.ArrayList;
 /**
  * Representa a las personas que usan la aplicación
  * 
@@ -21,6 +21,9 @@ public class Usuario
    private String alimentoMasCalorico;
    private float mayorIndiceCalorico;
    
+   //Creamos el arrayList
+   private ArrayList<Alimento> historial;
+   
    public Usuario(String nombre){
        this.nombre = nombre;
        
@@ -34,6 +37,8 @@ public class Usuario
        porcentajeGrasas = 0;
        alimentoMasCalorico = "No ha ingerido alimentos aún";
        mayorIndiceCalorico = 0;
+       
+       historial = new ArrayList<Alimento>();
     }
     /**
      * Creamos un método que permite al usuario comer una cantidad de un alimento.
@@ -56,6 +61,9 @@ public class Usuario
            mayorIndiceCalorico = comida.calorias();
            alimentoMasCalorico = comida.getNombre();
         }
+        
+       //Añadimos al Array nuestra comida
+       historial.add(comida);
     }
     
    /**
@@ -83,8 +91,23 @@ public class Usuario
             System.out.println("Los dos han consumido la misma cantidad de calorías");
         }
     }
+   /**
+    * Creamos un método que muestra por pantalla el alimento ingerido con mas indice
+    * de calorías hasta el momento
+    */
    public void alimentoMasCaloricoIngerido(){
        System.out.println("Alimento más calórico ingerido por el usuario hasta el momento: " + alimentoMasCalorico);
+    }
+   /**
+    * Creamos un método que muestra las estadísticas de los alimentos ingeridos
+    * por su historial
+    */
+   public void verAlimentoIngerido(int indice){
+      if(((historial.size() - 1) >= indice) && (indice >= 0)){
+          Alimento alimentoDeHistorial;
+          alimentoDeHistorial = historial.get(indice);
+          alimentoDeHistorial.muestraDatos();
+        }
     }
    //Metodos privados para el funcionamiento de la clase
    /**

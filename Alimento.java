@@ -17,6 +17,7 @@ public class Alimento
     private int incrementoCarbohidratos = 4;
     private int incrementoGrasas = 9;
     
+    
     /**
      * Creamos el constructor de la clase donde podemos introducir las caracteristicas
      * del alimento.
